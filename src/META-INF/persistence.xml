@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+	<persistence-unit name="unidade">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<!-- <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider> -->
+
+		<class>tabela.unica.A_vo1</class>
+		<class>tabela.unica.B_vo1</class>
+		<class>tabela.unica.C_vo1</class>
+		
+		<class>tabela.classe.concreta.A_vo2</class>
+		<class>tabela.classe.concreta.B_vo2</class>
+		<class>tabela.classe.concreta.C_vo2</class>
+		
+		<class>tabela.subclasse.A_vo3</class>
+		<class>tabela.subclasse.B_vo3</class>
+		<class>tabela.subclasse.C_vo3</class>
+
+		<properties>
+			<!-- <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" 
+				/> -->
+			<!-- <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/crudjpa" 
+				/> -->
+			<!-- <property name="javax.persistence.jdbc.user" value="postgres" /> -->
+			<!-- <property name="javax.persistence.jdbc.password" value="postgres" 
+				/> -->
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/tabelaunica" /> <!-- trocar esquema se necessário -->
+			<property name="javax.persistence.jdbc.user" value="master" />
+			<property name="javax.persistence.jdbc.password" value="matos132739" />
+
+			<!-- propriedades do hibernate -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+			<!-- <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/> -->
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+
+			<!-- atualiza o banco, gera as tabelas se for preciso -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+		</properties>
+	</persistence-unit>
+</persistence>
